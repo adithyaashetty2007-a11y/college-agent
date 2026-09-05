@@ -1,0 +1,21 @@
+COLLEGE INFORMATION
+
+College Name: St Joseph Engineering College (SJEC)
+
+Departments:
+- Computer Science and Engineering (CSE)
+- Information Science and Engineering (ISE)
+- Electronics and Communication Engineering (ECE)
+- Mechanical Engineering
+- Civil Engineering
+- Artificial Intelligence and Machine Learning
+
+CSE Department:
+The Computer Science and Engineering department is located in the main academic block.
+
+CSE department provides education in programming, data structures, algorithms,
+database systems, computer networks, operating systems, artificial intelligence,
+machine learning and software development.
+
+Students can contact the CSE department office for academic information,
+faculty information and department-related queries.
