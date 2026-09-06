@@ -1,40 +1,101 @@
 import subprocess
+from database import get_location
 
-# Load college information
-with open("college_data.txt", "r") as file:
-    college_data = file.read()
 
-question = input("📝 Enter your question: ")
+def get_ai_response(question):
 
-prompt = f"""
-You are a college voice assistant.
+    # ==============================
+    # SEARCH DATABASE
+    # ==============================
 
-Answer the student's question using ONLY the college information
-provided below.
+    location = None
 
-COLLEGE INFORMATION:
-{college_data}
+    keywords = [
+        "canteen",
+        "cse",
+        "computer science",
+        "library",
+        "hostel",
+        "main block",
+        "mechanical",
+        "admin"
+    ]
+
+    for keyword in keywords:
+
+        if keyword in question.lower():
+
+            location = get_location(keyword)
+
+            if location:
+                break
+
+
+    # ==============================
+    # PREPARE DATABASE INFORMATION
+    # ==============================
+
+    if location:
+
+        location_data = f"""
+Location: {location[0]}
+Building: {location[1]}
+Floor: {location[2]}
+Latitude: {location[3]}
+Longitude: {location[4]}
+Description: {location[5]}
+"""
+
+    else:
+
+        location_data = "No matching location found in database."
+
+
+    # ==============================
+    # ASK OLLAMA
+    # ==============================
+
+    prompt = f"""
+You are Jarvis, an AI assistant for SJEC college.
+
+Answer the student's question using the database information below.
+
+DATABASE INFORMATION:
+{location_data}
 
 STUDENT QUESTION:
 {question}
 
-Instructions:
-- Give a clear and short answer.
+Rules:
+- Give a short and clear answer.
 - Do not invent information.
-- If the information is not available, say:
+- If database information is available, use it.
+- If information is unavailable, say:
   "I don't have that information yet."
-- Answer naturally like a college assistant.
 """
 
-print("\n🤖 Thinking...\n")
+    print("\n🤖 Thinking...")
 
-result = subprocess.run(
-    ["ollama", "run", "llama3.2:3b", prompt],
-    capture_output=True,
-    text=True
-)
+    result = subprocess.run(
+        ["ollama", "run", "llama3.2:3b", prompt],
+        capture_output=True,
+        text=True
+    )
 
-answer = result.stdout.strip()
+    answer = result.stdout.strip()
 
-print("🤖 AI Answer:")
-print(answer)
+    return answer
+
+
+# ==============================
+# TEST
+# ==============================
+
+if __name__ == "__main__":
+
+    question = input("📝 Enter your question: ")
+
+    answer = get_ai_response(question)
+
+    print("\n🤖 AI Answer:")
+    print(answer)
