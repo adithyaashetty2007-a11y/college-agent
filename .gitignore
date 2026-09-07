@@ -3,3 +3,19 @@ venv/
 __pycache__/
 *.pyc
 .DS_Store
+
+node_modules/
+dist/
+
+.env
+.env.*
+!.env.example
+
+*.wav
+
+# Local databases
+*.db
+chroma_db/
+
+# Audio generated during development
+*.wav

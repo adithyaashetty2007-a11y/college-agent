@@ -1,0 +1,6 @@
+{
+  "name": "Jarvis - SJEC AI Campus Assistant",
+  "description": "AI campus assistant for St Joseph Engineering College (SJEC) featuring interactive voice queries, campus navigation map, and quick student services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

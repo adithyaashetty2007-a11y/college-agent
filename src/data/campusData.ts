@@ -1,0 +1,287 @@
+import { SuggestionQuestion, BuildingLocation, CampusRoute, QuickActionItem } from '../types';
+
+export const SUGGESTIONS: SuggestionQuestion[] = [
+  {
+    id: 'cse-dept',
+    question: 'Where is the CSE department?',
+    answer: 'The Computer Science & Engineering (CSE) Department is located in the Academic Block III (CSE & AI Block), 2nd and 3rd floors. It is right beside the Central Library walkway.',
+    category: 'Locations',
+  },
+  {
+    id: 'fee-payment',
+    question: 'What is the last date for fee payment?',
+    answer: 'Odd Semester Tuition Fee payment last date is June 15, 2025 (without fine). Exam registration fee deadline is June 22, 2025 via the ERP student portal.',
+    category: 'Fees',
+  },
+  {
+    id: 'bonafide-cert',
+    question: 'How do I apply for a Bonafide certificate?',
+    answer: 'Login to the SJEC ERP Portal -> Student Services -> Request Certificates -> Select "Bonafide Certificate". Processing takes 24-48 hours. Physical copies can be collected from the Academic Section counter in the Main Admin Block.',
+    category: 'Admin',
+  },
+  {
+    id: 'library-loc',
+    question: 'Where is the library?',
+    answer: 'The Central Library is situated directly in the Academic Block II ground and first floor, adjacent to the lush green courtyard lawn and opposite the Cafeteria.',
+    category: 'Locations',
+  },
+  {
+    id: 'exam-timings',
+    question: 'What are the exam timings?',
+    answer: 'Internal Assessments: Morning Session is 9:30 AM to 11:00 AM; Afternoon Session is 2:00 PM to 3:30 PM. Semester End VTU Examinations run from 9:30 AM to 12:30 PM.',
+    category: 'Academics',
+  },
+];
+
+export const CAMPUS_BUILDINGS: BuildingLocation[] = [
+  {
+    id: 'cse-block',
+    name: 'CSE Block',
+    code: 'CSE',
+    xPercent: 68,
+    yPercent: 30,
+    description: 'Computer Science & Engineering Department',
+    category: 'Academic',
+    departments: ['Computer Science & Engg', 'Artificial Intelligence & ML', 'Data Science & Cyber'],
+    hours: '8:00 AM – 5:30 PM (Mon–Sat)',
+    floors: [
+      'Ground Floor: Advanced AI & Cloud Computing Laboratories',
+      '1st Floor: IoT & Hardware Systems Lab, Embedded Tech Center',
+      '2nd Floor: Department Office, HOD Chamber, Faculty Cubicles',
+      '3rd Floor: Multimedia Smart Classrooms & High-Performance Computing Cluster',
+    ],
+    contact: 'cse.hod@sjec.ac.in • Ext. 234',
+    wheelchairAccessible: true,
+  },
+  {
+    id: 'library',
+    name: 'Library',
+    code: 'LIB',
+    xPercent: 30,
+    yPercent: 34,
+    description: 'Central Library & Digital Knowledge Resource Centre',
+    category: 'Academic',
+    departments: ['Digital Library', 'Reference Section', 'Periodicals & Journals', 'Archival Cell'],
+    hours: '8:00 AM – 8:00 PM (Weekdays) | 9:00 AM – 1:00 PM (Sundays)',
+    floors: [
+      'Ground Floor: Issue Counter, Reference Section & New Arrivals Gallery',
+      '1st Floor: Digital e-Library, IEEE / ScienceDirect Terminals, Research Pods',
+      '2nd Floor: Silent Study Sanctuary & Audio-Visual Seminar Hall',
+    ],
+    contact: 'library@sjec.ac.in • Ext. 108',
+    wheelchairAccessible: true,
+  },
+  {
+    id: 'main-block',
+    name: 'Main Block',
+    code: 'MB',
+    xPercent: 54,
+    yPercent: 42,
+    description: 'Administrative Offices & Principal Chamber',
+    category: 'Admin',
+    departments: ['Office of the Principal', 'Admissions & Student Welfare', 'Accounts & Finance', 'Placement Cell'],
+    hours: '8:30 AM – 5:00 PM (Mon–Fri) | 8:30 AM – 1:00 PM (Sat)',
+    floors: [
+      'Ground Floor: Admissions Desk, Fee Cash Counters & Student Helpdesk',
+      '1st Floor: Director & Principal Chambers, Executive Boardroom',
+      '2nd Floor: Controller of Examinations (COE) & Training & Placement Cell',
+    ],
+    contact: 'office@sjec.ac.in • Ext. 100',
+    wheelchairAccessible: true,
+  },
+  {
+    id: 'mechanical-block',
+    name: 'Mechanical Block',
+    code: 'MECH',
+    xPercent: 76,
+    yPercent: 46,
+    description: 'Mechanical Workshops & Robotics Innovation Labs',
+    category: 'Academic',
+    departments: ['Mechanical Engineering', 'Robotics & Automation', 'CAD/CAM Centre', 'Material Testing'],
+    hours: '8:00 AM – 5:00 PM (Mon–Sat)',
+    floors: [
+      'Ground Floor: Machine Tool Lab, Foundry & Forging Shop, Welding Booths',
+      '1st Floor: Fluid Mechanics, Thermal Engineering & Heat Transfer Labs',
+      '2nd Floor: CAD/CAM Computing Suites & SAE Collegiate Club Garage',
+    ],
+    contact: 'mech.hod@sjec.ac.in • Ext. 210',
+    wheelchairAccessible: false,
+  },
+  {
+    id: 'gate',
+    name: 'Gate',
+    code: 'GATE',
+    xPercent: 50,
+    yPercent: 62,
+    description: 'Main Campus Entrance & Security Kiosk',
+    category: 'Admin',
+    departments: ['Campus Security', 'Visitor Passes', 'Vehicle Parking Verification', 'Transport Helpdesk'],
+    hours: 'Open 24/7 (Security Personnel on duty)',
+    floors: [
+      'Ground Floor: Security Control Room, Visitor Registry & Emergency Response Station',
+    ],
+    contact: 'security@sjec.ac.in • Ext. 111',
+    wheelchairAccessible: true,
+  },
+  {
+    id: 'hostel',
+    name: 'Hostel',
+    code: 'HOSTEL',
+    xPercent: 24,
+    yPercent: 22,
+    description: 'St Joseph Student Residence & Dining Halls',
+    category: 'Hostel',
+    departments: ['Gents Hostel Blocks', 'Ladies Hostel Wing', 'Dining & Mess Services', 'Recreation Room'],
+    hours: 'Resident Access 24/7 (Campus In-Time: 7:30 PM)',
+    floors: [
+      'Ground Floor: Resident Warden Office, Guest Lounge, Common Mess Hall',
+      '1st–3rd Floors: Furnished Student Dormitories, Study Lounges & Wi-Fi Zones',
+    ],
+    contact: 'hostel.warden@sjec.ac.in • Ext. 401',
+    wheelchairAccessible: true,
+  },
+  {
+    id: 'canteen',
+    name: 'Canteen',
+    code: 'FOOD',
+    xPercent: 38,
+    yPercent: 48,
+    description: 'Campus Food Court & Coffee Bar',
+    category: 'Food',
+    departments: ['Main Multi-Cuisine Food Court', 'Fresh Juice & Bakery Kiosk', 'Faculty Dining Lounge'],
+    hours: '7:30 AM – 6:30 PM Daily',
+    floors: [
+      'Ground Floor: Multi-counter Food Court, Healthy Snacks, Beverages & Dining Tables',
+      'Mezzanine: Outdoor Open-air Shaded Balcony Seating',
+    ],
+    contact: 'cafeteria@sjec.ac.in • Ext. 505',
+    wheelchairAccessible: true,
+  },
+  {
+    id: 'sports',
+    name: 'Sports Ground',
+    code: 'SPORTS',
+    xPercent: 78,
+    yPercent: 64,
+    description: 'Athletics Oval, Gymnasium & Indoor Sports Arena',
+    category: 'Sports',
+    departments: ['Physical Education Dept', 'Badminton & Table Tennis Arena', 'Student Fitness Gymnasium'],
+    hours: '6:00 AM – 8:30 PM (Daily)',
+    floors: [
+      'Outdoor: 200m Running Track, Football Field, Basketball & Volleyball Synthetic Courts',
+      'Indoor Complex: Multi-station Weight Training Gym & Wooden Badminton Courts',
+    ],
+    contact: 'sports@sjec.ac.in • Ext. 312',
+    wheelchairAccessible: true,
+  },
+];
+
+export const DEFAULT_ROUTE: CampusRoute = {
+  id: 'route-main-to-cse',
+  destinationName: 'CSE Block',
+  originName: 'Main Block',
+  duration: '2 min',
+  distance: '150 m',
+  steps: [
+    'Head towards the main pathway',
+    'Turn right near the library',
+    'Continue straight, CSE Block will be on your left',
+  ],
+  pathPoints: [
+    { x: 50, y: 58 }, // Gate
+    { x: 58, y: 54 },
+    { x: 55, y: 46 }, // Approaching pathway
+    { x: 52, y: 40 }, // Near Library corner
+    { x: 57, y: 33 }, // Curve
+    { x: 65, y: 31 }, // Towards CSE
+  ],
+};
+
+export const QUICK_ACTIONS: QuickActionItem[] = [
+  {
+    id: 'departments',
+    title: 'Department Locations',
+    description: 'Find your department',
+    badgeColor: 'blue',
+    iconType: 'compass',
+    details: {
+      summary: 'Explore all Engineering, Management, and Basic Science departments at SJEC Vamanjoor campus.',
+      items: [
+        { label: 'Computer Science & Engg (CSE)', value: 'Block III, 2nd & 3rd Floor' },
+        { label: 'Artificial Intelligence & ML (AIML)', value: 'Block III, 1st Floor' },
+        { label: 'Electronics & Communication (ECE)', value: 'Block II, 2nd Floor' },
+        { label: 'Mechanical Engineering (ME)', value: 'Mechanical Block' },
+        { label: 'Civil Engineering (CIVIL)', value: 'Block I, 3rd Floor' },
+        { label: 'MBA & Business Studies', value: 'Management Block' },
+      ],
+    },
+  },
+  {
+    id: 'fees',
+    title: 'Fee Deadlines',
+    description: 'View and pay fees',
+    badgeColor: 'purple',
+    iconType: 'calendar',
+    details: {
+      summary: 'Current fee schedules, installment due dates, and online banking links for semester fees.',
+      items: [
+        { label: 'Odd Sem Tuition Fee', value: 'Due: 15 June 2025' },
+        { label: 'Hostel & Mess Dues', value: 'Due: 20 June 2025' },
+        { label: 'Bus Transport Fee', value: 'Due: 30 June 2025' },
+        { label: 'VTU Exam Registration', value: 'Due: 22 June 2025' },
+        { label: 'Payment Methods', value: 'SJEC ERP, NEFT/RTGS, UPI QR' },
+      ],
+    },
+  },
+  {
+    id: 'admin',
+    title: 'Administrative Procedures',
+    description: 'Certificates, forms & more',
+    badgeColor: 'emerald',
+    iconType: 'file',
+    details: {
+      summary: 'Official student request flows, letters, transcripts, and certificate issuances.',
+      items: [
+        { label: 'Bonafide Certificate', value: 'Apply online on ERP, 24-48 hrs turnaround' },
+        { label: 'Study Certificate & NOC', value: 'Dean Academics office (Room 104)' },
+        { label: 'Marks Card Correction', value: 'VTU Exam Cell (Admin Block)' },
+        { label: 'Bus Pass Application', value: 'Transport In-charge counter' },
+        { label: 'Scholarship Endorsement', value: 'Accounts Section (Counter 2)' },
+      ],
+    },
+  },
+  {
+    id: 'exams',
+    title: 'Exam Schedule',
+    description: 'View exam dates',
+    badgeColor: 'amber',
+    iconType: 'clock',
+    details: {
+      summary: 'Upcoming internal assessment cycles, lab vivas, and VTU final theory examination timetables.',
+      items: [
+        { label: 'Internal Assessment - II', value: 'June 02 - June 06, 2025' },
+        { label: 'Laboratory Practical Exams', value: 'June 10 - June 16, 2025' },
+        { label: 'VTU Theory Semester End', value: 'July 01 - July 20, 2025' },
+        { label: 'Hall Ticket Distribution', value: 'Available on ERP 3 days prior' },
+        { label: 'Reporting Time', value: '30 mins before scheduled commencement' },
+      ],
+    },
+  },
+  {
+    id: 'services',
+    title: 'Student Services',
+    description: 'Hostel, transport, scholarships',
+    badgeColor: 'rose',
+    iconType: 'users',
+    details: {
+      summary: 'Campus amenities, on-campus health clinic, sports facilities, counseling and grievance cells.',
+      items: [
+        { label: 'Hostel Wardens & Mess', value: 'St Joseph Boys & Girls Hostels' },
+        { label: 'Campus Clinic & Ambulance', value: 'Ground Floor, Block I (24/7 on call)' },
+        { label: 'Counseling & Wellness', value: 'Student Wellness Centre (Room 202)' },
+        { label: 'Placement & Career Hub', value: 'Training & Placement Cell, Block IV' },
+        { label: 'College Bus Routes', value: '18 buses covering Mangaluru & Udupi' },
+      ],
+    },
+  },
+];
